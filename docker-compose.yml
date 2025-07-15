@@ -1,0 +1,14 @@
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    ports:
+      - 500:80
+    volumes:
+      - ./config:/config
+      - ./nginx/default.conf:/config/nginx/site-confs/default.conf
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Mexico_City
+    restart: always
